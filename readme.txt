@@ -9,6 +9,21 @@ Solution ->
 
 Users appearing for the quiz need to be mapped with an IP address.
 
+Installation ->
+
+1) Download and unzip the zip file.
+2) Place the plugin folder in the " /mod/quiz/accessrule " subdirectory.
+3) Place the accessrule_navigation_patch.txt in the " /mod/quiz/ " subdirectory.
+4) Apply the patch through command prompt by 
+
+   i) navigating to the subdirectory " /moodle/mod/quiz/ "
+  ii) executing following command 
+       patch -p3 < accessrule_navigation_patch.txt
+       
+5) Visit http://yoursite.com/admin to finish the installation
+6) Complete the installation by clicking on “Upgrade Moodle database now”,click on continue after the success 
+   notification appears on the page.
+   
 Usage ->
 
 To use this plugin,follow below two steps.
@@ -32,18 +47,3 @@ Requirement of the mapping file to be uploaded are:
    wouldn't proceed untill all the required fields are present in the csv file.
 4) There should be one to one mapping between user and IP address,i.e each user should be mapped to only one IP address 
    (in multiple mapping uploads,previous alloted IP would override with the latest one by default.)
-
-Installation ->
-
-1) Download and unzip the zip file.
-2) Place the plugin folder in the " /mod/quiz/accessrule " subdirectory.
-3) Place the accessrule_navigation_patch.txt in the " /mod/quiz/ " subdirectory.
-4) Apply the patch through command prompt by 
-
-   i) navigating to the subdirectory " /moodle/mod/quiz/ "
-  ii) executing following command 
-       patch -p3 < accessrule_navigation_patch.txt
-       
-5) Visit http://yoursite.com/admin to finish the installation
-6) Complete the installation by clicking on “Upgrade Moodle database now”,click on continue after the success 
-   notification appears on the page.
