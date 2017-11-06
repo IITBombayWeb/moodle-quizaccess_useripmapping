@@ -48,4 +48,3 @@ Requirement of the mapping file to be uploaded are:
 4) There should be one to one mapping between user and IP address,i.e each user should be mapped to only one IP address 
    (in multiple mapping uploads,previous alloted IP would override with the latest one by default.)
 
-
