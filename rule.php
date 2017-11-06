@@ -50,8 +50,8 @@ class quizaccess_useripmapping extends quiz_access_rule_base
                                  order by timecreated DESC limit 1";
         $mappedipaddress    = $DB->get_field_sql($ipsql);
         $remoteaddr           = getremoteaddr();
-        $ipmismatchmessage1   = get_string('$ipmismatchmessage1', 'quizaccess_useripmapping');
-        $ipmismatchmessage2   = get_string('$ipmismatchmessage2', 'quizaccess_useripmapping');
+        $ipmismatchmessage1   = get_string('ipmismatchmessage1', 'quizaccess_useripmapping');
+        $ipmismatchmessage2   = get_string('ipmismatchmessage2', 'quizaccess_useripmapping');
         $ipnotassignedmessage = get_string('ipnotassignedmessage', 'quizaccess_useripmapping');
         if ($allowifunassigned) {
             if (empty($mappedipaddress)) {
@@ -59,16 +59,18 @@ class quizaccess_useripmapping extends quiz_access_rule_base
             } else if (address_in_subnet(getremoteaddr(), $mappedipaddress)) {
                  return false;
             } else {
-                 return "$ipmismatchmessage1.$mappedipaddress.$ipmismatchmessage2";
+                 return $ipmismatchmessage1.$mappedipaddress.$ipmismatchmessage2;
             }
         } else {
-            if (address_in_subnet(getremoteaddr(), $mappedipaddress)) {
-                return false;
-            } else {
-                return $ipnotassignedmessage;
-            }
+          if (empty($mappedipaddress)) {
+              return $ipnotassignedmessage;
+          } else if (address_in_subnet(getremoteaddr(), $mappedipaddress)) {
+               return false;
+          } else {
+               return $ipmismatchmessage1.$mappedipaddress.$ipmismatchmessage2;
+          }
         }
-    }
+}
     public static function add_settings_form_fields(mod_quiz_mod_form $quizform, MoodleQuickForm $mform) {
         $useripmappingarray   = array();
         $useripmappingarray[] = $mform->createElement('select', 'useripmappingrequired',

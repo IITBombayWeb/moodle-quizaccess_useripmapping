@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->version   = 2017102400;
+$plugin->version   = 2017110700;
 $plugin->requires  = 2017051500;
 $plugin->component = 'quizaccess_useripmapping';
 $plugin->maturity  = MATURITY_RC;

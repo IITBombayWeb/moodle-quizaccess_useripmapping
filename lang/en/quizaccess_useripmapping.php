@@ -32,9 +32,8 @@ $string['encoding']                    = 'Encoding';
 $string['file']                        = 'File';
 $string['idnumber']                    = 'User ID';
 $string['importmapping']               = 'Import user-IP mappings';
-$string['ipmismatchmessage1']          = 'You are being assigned :<b>';
-$string['ipmismatchmessage2']          = "</b> IP Address to attempt the quiz and this computer's
-IP address does not match with the assigned one.";
+$string['ipmismatchmessage1']          = 'You are being assigned : <b>';
+$string['ipmismatchmessage2']          = "</b> IP Address to attempt the quiz and this computer's IP address does not match with the assigned one.";
 $string['ipnotassignedmessage']        = 'You have not been assigned any IP address to attempt this quiz,please contact your
 instructor to get it assigned in order to attempt this quiz.';
 $string['notrequired']                 = 'No';
@@ -56,5 +55,3 @@ The format of the file is as follows:
 $string['username']                    = 'User name';
 $string['uploadmappingspreview']       = 'Upload mappings preview';
 $string['viewthelist']                 = 'View';
-
-
