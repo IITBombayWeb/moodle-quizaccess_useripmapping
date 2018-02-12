@@ -58,9 +58,12 @@ class quizaccess_upload_useripmapping_list extends moodleform
         );
         $mform->addElement('select', 'previewrows', get_string('rowpreviewnum', 'quizaccess_useripmapping'), $choices);
         $mform->setType('previewrows', PARAM_INT);
-        $mform->addElement('hidden', 'quizid');
+         $mform->addElement('hidden', 'quizid');
+        $mform->setType('quizid', PARAM_INT);
         $mform->addElement('hidden', 'courseid');
+        $mform->setType('courseid', PARAM_INT);
         $mform->addElement('hidden', 'cmid');
+        $mform->setType('cmid', PARAM_INT);
         $this->add_action_buttons(true, get_string('uploadmappings', 'quizaccess_useripmapping'));
     }
 }
@@ -83,9 +86,11 @@ class quizaccess_store_useripmapping_list extends moodleform
         $mform->setType('iid', PARAM_INT);
         $mform->addElement('hidden', 'previewrows');
         $mform->setType('previewrows', PARAM_INT);
-        $mform->addElement('hidden', 'quizid');
+        $mform->setType('quizid', PARAM_INT);
         $mform->addElement('hidden', 'courseid');
+        $mform->setType('courseid', PARAM_INT);
         $mform->addElement('hidden', 'cmid');
+        $mform->setType('cmid', PARAM_INT);
         $mform->addElement('hidden', 'missingusernames');
         $mform->addElement('hidden', 'missingips');
         $mform->addElement('hidden', 'bothfieldsmissing');
@@ -114,6 +119,7 @@ class quizaccess_edit_useripmapping_list extends moodleform
     public function definition() {
         $mform = $this->_form;
         $mform->addElement('text', 'username', get_string('username', 'quizaccess_useripmapping'));
+        $mform->setType('username', PARAM_RAW);
         $mform->addElement('html', '<div form-group row  fitem id="hide1" >');
         $mform->addElement('html', '<div class="col-md-3" >');
         $mform->addElement('html', '</div>');
@@ -123,9 +129,12 @@ class quizaccess_edit_useripmapping_list extends moodleform
         $mform->addElement('html', '</div>');
         $mform->addElement('html', '</div>');
         $mform->addElement('text', 'idnumber', get_string('idnumber', 'quizaccess_useripmapping'));
-        $mform->addElement('hidden', 'quizid');
+        $mform->setType('idnumber', PARAM_ALPHANUMEXT);
+        $mform->setType('quizid', PARAM_INT);
         $mform->addElement('hidden', 'courseid');
+        $mform->setType('courseid', PARAM_INT);
         $mform->addElement('hidden', 'cmid');
+        $mform->setType('cmid', PARAM_INT);
         $this->add_action_buttons(true, get_string('viewthelist', 'quizaccess_useripmapping'));
     }
 }
