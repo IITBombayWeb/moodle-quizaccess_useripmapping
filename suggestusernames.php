@@ -27,7 +27,7 @@ global $DB;
 
 if (!empty($_POST["keyword"])) {
     $name        = $_POST["keyword"];
-    $usersql = "SELECT * FROM (SELECT CONCAT(firstname, ' ', lastname) as fullname FROM mdl_user) base
+    $usersql = "SELECT * FROM (SELECT CONCAT(firstname, ' ', lastname) as fullname FROM {user}) base
                 WHERE fullname LIKE '%" . $name . "%' ";
     $usernames   = $DB->get_fieldset_sql($usersql);
     if (count($usernames) > 0) {
