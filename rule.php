@@ -44,9 +44,9 @@ class quizaccess_useripmapping extends quiz_access_rule_base
         $username = $_SESSION['USER']->username;
         global $DB;
         $quizid               = $this->quiz->id;
-        $allowifunassignedsql = "SELECT allowifunassigned FROM mdl_quizaccess_enable_mappings WHERE quizid=$quizid";
+        $allowifunassignedsql = "SELECT allowifunassigned FROM {quizaccess_enable_mappings} WHERE quizid=$quizid";
         $allowifunassigned    = $DB->get_field_sql($allowifunassignedsql);
-        $ipsql                = "SELECT ip FROM mdl_quizaccess_useripmappings WHERE username='$username' and quizid=$quizid
+        $ipsql                = "SELECT ip FROM {quizaccess_useripmappings} WHERE username='$username' and quizid=$quizid
                                  order by timecreated DESC limit 1";
         $mappedipaddress    = $DB->get_field_sql($ipsql);
         $remoteaddr           = getremoteaddr();
