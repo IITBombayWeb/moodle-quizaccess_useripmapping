@@ -27,9 +27,9 @@ define(['jquery'], function($) {
 
             $('form input[name=username]').val('');
 
-            $("#userlist").on("click", "li", function() {
+            $(".quizaccess-useripmapping #userlist").on("click", "li", function() {
                 $("#id_username").val($(this).text());
-                $("#userlist").hide();
+                $(".quizaccess-useripmapping #userlist").hide();
             });
 
             $("#id_username").keyup(function() {
@@ -41,8 +41,8 @@ define(['jquery'], function($) {
                         $("#id_username").css("background", "#FFF url(LoaderIcon.gif) no-repeat 165px");
                     },
                     success: function(data) {
-                        $("#userlist").show();
-                        $("#userlist").html(data);
+                        $(".quizaccess-useripmapping #userlist").show();
+                        $(".quizaccess-useripmapping #userlist").html(data);
                         $("#id_username").css("background", "#FFF");
                     }
                 });
