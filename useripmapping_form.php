@@ -123,7 +123,7 @@ class quizaccess_edit_useripmapping_list extends moodleform
         $mform->addElement('html', '<div form-group row  fitem id="hide1" >');
         $mform->addElement('html', '<div class="col-md-3" >');
         $mform->addElement('html', '</div>');
-        $mform->addElement('html', '<div id="suggestionbox" class="col-md-9" >');
+        $mform->addElement('html', '<div id="suggestionbox" class="col-md-9 quizaccess-useripmapping" >');
         $mform->addElement('html', '<ul id="userlist">');
         $mform->addElement('html', '</ul>');
         $mform->addElement('html', '</div>');
