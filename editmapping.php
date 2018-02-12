@@ -73,19 +73,19 @@ if ($formdata = $form->is_cancelled()) {
     redirect($returntomanageurl);
 } else if ($data = $form->get_data()) {
     if (empty($data->idnumber) && !empty($data->username)) {
-        $usernamesql = "select username from mdl_user where CONCAT_WS(' ', firstname, lastname)
+        $usernamesql = "select username from {user} where CONCAT_WS(' ', firstname, lastname)
                         LIKE '%" . $data->username . "%'  ";
     } else if (empty($data->username) && !empty($data->idnumber)) {
-        $usernamesql = "select username from mdl_user where idnumber LIKE '%" . $data->idnumber . "%' ";
+        $usernamesql = "select username from {user} where idnumber LIKE '%" . $data->idnumber . "%' ";
     } else if (!empty($data->username) && !empty($data->idnumber)) {
-        $usernamesql = "select username from mdl_user where CONCAT_WS(' ', firstname, lastname)
+        $usernamesql = "select username from {user} where CONCAT_WS(' ', firstname, lastname)
                         LIKE '%" . $data->username . "%' AND idnumber LIKE '%" . $data->idnumber . "%' ";
     } else {
         echo "Please enter either username or roll number";
     }
     if (!empty($usernamesql)) {
         $username     = $DB->get_fieldset_sql($usernamesql);
-        $timestampsql = 'SELECT username, MAX(timecreated) FROM mdl_quizaccess_useripmappings
+        $timestampsql = 'SELECT username, MAX(timecreated) FROM {quizaccess_useripmappings}
                          where quizid=' . $quizid . ' group by username
                          having username IN ("' . implode('", "', $username) . '")';
         $timestamp    = $DB->get_records_sql_menu($timestampsql);
@@ -103,7 +103,7 @@ if ($formdata = $form->is_cancelled()) {
             $srno        = 0;
             foreach ($timestamp as $key => $value) {
                 $srno++;
-                $mappingsql = "SELECT * FROM mdl_quizaccess_useripmappings WHERE
+                $mappingsql = "SELECT * FROM {quizaccess_useripmappings} WHERE
                                quizid=$quizid AND username='$key' AND timecreated='$value'";
                 $result     = $DB->get_records_sql($mappingsql);
                 foreach ($result as $record) {
